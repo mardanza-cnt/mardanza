@@ -1,0 +1,61 @@
+import type { Actividad } from "@/lib/types";
+import { DISCIPLINA_LABEL } from "@/lib/types";
+
+const DIA_SEMANA = ["DOM", "LUN", "MAR", "MIÉ", "JUE", "VIE", "SÁB"];
+
+function parseFecha(fecha: string) {
+  const d = new Date(`${fecha}T00:00:00`);
+  return {
+    dia: DIA_SEMANA[d.getDay()],
+    numero: d.getDate(),
+  };
+}
+
+export default function ActivityCard({ actividad }: { actividad: Actividad }) {
+  const { dia, numero } = parseFecha(actividad.fecha);
+
+  return (
+    <div className="flex overflow-hidden rounded-xl">
+      <div className="flex w-20 flex-none flex-col items-center justify-center bg-tinta py-4 text-menta">
+        <span className="font-display text-xs tracking-wide">{dia}</span>
+        <span className="font-display text-3xl leading-none">{numero}</span>
+        <span className="mt-1 text-xs">{actividad.hora}</span>
+      </div>
+
+      <div
+        className="relative flex flex-1 items-center justify-between gap-3 bg-menta p-4"
+        style={
+          actividad.imagenUrl
+            ? {
+                backgroundImage: `linear-gradient(to right, rgba(22,22,22,0.75), rgba(22,22,22,0.35)), url(${actividad.imagenUrl})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }
+            : undefined
+        }
+      >
+        <div>
+          <p
+            className={`font-display text-base ${
+              actividad.imagenUrl ? "text-papel" : "text-tinta"
+            }`}
+          >
+            {actividad.titulo}
+          </p>
+          {(actividad.lugar || actividad.descripcion) && (
+            <p
+              className={`mt-1 text-sm ${
+                actividad.imagenUrl ? "text-papel/85" : "text-tinta/80"
+              }`}
+            >
+              {[actividad.lugar, actividad.descripcion].filter(Boolean).join(" · ")}
+            </p>
+          )}
+        </div>
+        <span className="flex-none rounded-full bg-tinta px-3 py-1 text-xs text-menta">
+          {DISCIPLINA_LABEL[actividad.disciplina]}
+        </span>
+      </div>
+    </div>
+  );
+}
