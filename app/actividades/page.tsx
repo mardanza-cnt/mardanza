@@ -1,6 +1,8 @@
 import DisciplineFilter from "@/components/discipline-filter";
 import { getActividades } from "@/lib/data";
 
+export const revalidate = 60;
+
 export default async function ActividadesPage() {
   const actividades = await getActividades();
 
