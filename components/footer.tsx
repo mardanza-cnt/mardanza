@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer className="mt-16 border-t border-arena/40 px-6 py-8 text-sm text-tinta/70 md:px-12">
@@ -5,6 +7,10 @@ export default function Footer() {
         <div>
           <p>Mardanza — Territorio en movimiento. Cañete, Chile.</p>
           <p className="mt-1 text-xs text-tinta/50">
+            <Link href="/politica-de-privacidad" className="underline hover:text-menta">
+              Política de privacidad
+            </Link>
+            {" · "}
             Desarrollado por{" "}
             <a
               href="https://claunet.cl"
