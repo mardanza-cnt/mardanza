@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const NAV_LINKS = [
@@ -9,8 +10,8 @@ const NAV_LINKS = [
 export default function Header() {
   return (
     <header className="flex items-center justify-between px-6 py-4 md:px-12">
-      <Link href="/" className="font-display text-xl tracking-wide text-tinta">
-        MARDANZA
+      <Link href="/">
+        <Image src="/logo-header.png" alt="Mardanza" width={44} height={44} />
       </Link>
       <nav className="flex gap-6 text-sm font-medium">
         {NAV_LINKS.map((link) => (

@@ -3,7 +3,10 @@ import Link from "next/link";
 export default function Hero() {
   return (
     <section className="text-center">
-      <div className="bg-cielo px-6 pb-0 pt-16 md:pt-24">
+      <div
+        className="bg-cover bg-center px-6 pb-0 pt-16 md:pt-24"
+        style={{ backgroundImage: "url('/images/hero-photo.jpg')" }}
+      >
         <h1 className="font-display text-4xl tracking-wide text-tinta md:text-6xl">
           MARDANZA
         </h1>
