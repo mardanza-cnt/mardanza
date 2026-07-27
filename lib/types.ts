@@ -1,4 +1,4 @@
-export type Disciplina = "danza" | "teatro" | "bateria" | "canto";
+export type Disciplina = "danza" | "teatro" | "bateria" | "canto" | "breakdance" | "circo" | "infantil" | "musica" | "dojo";
 
 export interface Actividad {
   _id: string;
@@ -16,4 +16,9 @@ export const DISCIPLINA_LABEL: Record<Disciplina, string> = {
   teatro: "Teatro",
   bateria: "Batería",
   canto: "Canto",
+  breakdance: "Breakdance",
+  circo: "Circo",
+  infantil: "Infantil",
+  musica: "Música",
+  dojo: "Dojo",
 };
