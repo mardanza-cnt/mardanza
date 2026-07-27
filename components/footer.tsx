@@ -4,9 +4,8 @@ export default function Footer() {
       <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
         <p>Mardanza — Territorio en movimiento. Cañete, Chile.</p>
         <div className="flex gap-4">
-          {/* Reemplazar por los handles reales de Mardanza */}
-          <a href="#" className="hover:text-menta">Instagram</a>
-          <a href="#" className="hover:text-menta">Facebook</a>
+          <a href="https://www.instagram.com/mardanza_/" target="_blank" rel="noopener noreferrer" className="hover:text-menta">Instagram</a>
+          <a href="https://web.facebook.com/centromardanza/" target="_blank" rel="noopener noreferrer" className="hover:text-menta">Facebook</a>
         </div>
       </div>
     </footer>

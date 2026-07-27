@@ -33,9 +33,8 @@ export default function ContactoPage() {
       </form>
 
       <div className="mt-8 flex gap-6 border-t border-arena/40 pt-6 text-sm">
-        {/* Reemplazar por los handles reales */}
-        <a href="#" className="hover:text-menta">Instagram: @centromardanza</a>
-        <a href="#" className="hover:text-menta">Facebook: Centro Mardanza</a>
+        <a href="https://www.instagram.com/mardanza_/" target="_blank" rel="noopener noreferrer" className="hover:text-menta">Instagram: @mardanza_</a>
+        <a href="https://web.facebook.com/centromardanza/" target="_blank" rel="noopener noreferrer" className="hover:text-menta">Facebook: Centro Mardanza</a>
       </div>
     </main>
   );
