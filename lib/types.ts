@@ -7,7 +7,7 @@ export interface Actividad {
   hora: string; // e.g. "18:30"
   lugar?: string;
   descripcion?: string;
-  disciplina: Disciplina;
+  disciplina: Disciplina[];
   imagenUrl?: string;
 }
 

@@ -12,7 +12,7 @@ const ACTIVIDADES_EJEMPLO: Actividad[] = [
     hora: "18:30",
     lugar: "Actividad interna",
     descripcion: "Obra Piwke Mapu, de Paula Vera.",
-    disciplina: "danza",
+    disciplina: ["danza"],
   },
   {
     _id: "ejemplo-2",
@@ -21,7 +21,7 @@ const ACTIVIDADES_EJEMPLO: Actividad[] = [
     hora: "18:30",
     lugar: "Centro Cultural Arauco",
     descripcion: "Baquetas y timbales, Academia de Música Felipe Wulfen. Entrada gratuita.",
-    disciplina: "bateria",
+    disciplina: ["bateria"],
   },
 ];
 

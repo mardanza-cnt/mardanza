@@ -52,9 +52,16 @@ export default function ActivityCard({ actividad }: { actividad: Actividad }) {
             </p>
           )}
         </div>
-        <span className="flex-none rounded-full bg-tinta px-3 py-1 text-xs text-menta">
-          {DISCIPLINA_LABEL[actividad.disciplina]}
-        </span>
+        <div className="flex flex-none flex-wrap gap-1">
+          {actividad.disciplina.map((d) => (
+            <span
+              key={d}
+              className="rounded-full bg-tinta px-3 py-1 text-xs text-menta"
+            >
+              {DISCIPLINA_LABEL[d]}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );

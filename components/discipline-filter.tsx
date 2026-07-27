@@ -11,7 +11,7 @@ export default function DisciplineFilter({ actividades }: { actividades: Activid
   const [activa, setActiva] = useState<Disciplina | "todas">("todas");
 
   const visibles =
-    activa === "todas" ? actividades : actividades.filter((a) => a.disciplina === activa);
+    activa === "todas" ? actividades : actividades.filter((a) => a.disciplina.includes(activa));
 
   return (
     <div>

@@ -41,7 +41,8 @@ export default defineType({
     defineField({
       name: "disciplina",
       title: "Disciplina",
-      type: "string",
+      type: "array",
+      of: [{ type: "string" }],
       options: {
         list: [
           { title: "Danza", value: "danza" },
@@ -50,7 +51,7 @@ export default defineType({
           { title: "Canto", value: "canto" },
         ],
       },
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) => Rule.required().min(1),
     }),
     defineField({
       name: "imagen",
