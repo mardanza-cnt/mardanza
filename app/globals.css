@@ -6,6 +6,7 @@
   --menta: #4fd9b4;
   --tinta: #161616;
   --papel: #f1ebdc;
+  --menta-suave: #e4f7f1;
 }
 
 @theme inline {
@@ -14,6 +15,7 @@
   --color-menta: var(--menta);
   --color-tinta: var(--tinta);
   --color-papel: var(--papel);
+  --color-menta-suave: var(--menta-suave);
   --font-display: var(--font-anton);
   --font-sans: var(--font-work-sans);
 }

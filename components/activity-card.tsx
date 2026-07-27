@@ -24,17 +24,18 @@ export default function ActivityCard({ actividad }: { actividad: Actividad }) {
   return (
     <>
       <div
-        className={`flex overflow-hidden rounded-xl ${tieneImagen ? "cursor-pointer" : ""}`}
+        className={`flex-col md:flex-row flex overflow-hidden rounded-xl ${tieneImagen ? "cursor-pointer" : ""}`}
         onClick={tieneImagen ? () => setOpen(true) : undefined}
       >
-        <div className="flex w-20 flex-none flex-col items-center justify-center bg-tinta py-4 text-menta">
+        {/* Fecha: horizontal en mobile, columna angosta en desktop */}
+        <div className="flex md:flex-col md:w-20 md:flex-none items-center justify-center gap-2 md:gap-0 bg-tinta px-4 py-2 md:px-0 md:py-4 text-menta">
           <span className="font-display text-xs tracking-wide">{dia}</span>
           <span className="font-display text-3xl leading-none">{numero}</span>
-          <span className="mt-1 text-xs">{actividad.hora}</span>
+          <span className="md:mt-1 text-xs">{actividad.hora}</span>
         </div>
 
         <div
-          className="relative flex flex-1 items-center justify-between gap-3 bg-menta p-4"
+          className="relative flex flex-1 items-center justify-between gap-3 bg-menta p-4 h-48 md:h-auto overflow-hidden"
           style={
             actividad.imagenUrl
               ? {
@@ -45,7 +46,7 @@ export default function ActivityCard({ actividad }: { actividad: Actividad }) {
               : undefined
           }
         >
-          <div>
+          <div className="min-w-0">
             <p
               className={`font-display text-base ${
                 actividad.imagenUrl ? "text-papel" : "text-tinta"
@@ -55,7 +56,7 @@ export default function ActivityCard({ actividad }: { actividad: Actividad }) {
             </p>
             {(actividad.lugar || actividad.descripcion) && (
               <p
-                className={`mt-1 text-sm ${
+                className={`mt-1 text-sm line-clamp-2 ${
                   actividad.imagenUrl ? "text-papel/85" : "text-tinta/80"
                 }`}
               >
@@ -63,7 +64,7 @@ export default function ActivityCard({ actividad }: { actividad: Actividad }) {
               </p>
             )}
           </div>
-          <div className="flex flex-none flex-wrap gap-1">
+          <div className="flex flex-none flex-wrap gap-1 self-start md:self-auto">
             {actividad.disciplina.map((d) => (
               <span
                 key={d}
