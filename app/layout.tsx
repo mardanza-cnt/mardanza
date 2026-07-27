@@ -3,6 +3,7 @@ import { Anton, Work_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import WhatsappButton from "@/components/whatsapp-button";
 
 const anton = Anton({
   weight: "400",
@@ -33,6 +34,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <WhatsappButton />
       </body>
     </html>
   );
