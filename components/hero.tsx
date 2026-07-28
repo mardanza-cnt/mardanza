@@ -27,7 +27,7 @@ export default function Hero() {
             alt=""
             fill
             className="object-cover"
-            style={{ objectPosition: "75% 40%" }}
+            style={{ objectPosition: "60% 45%" }}
             priority
           />
 
