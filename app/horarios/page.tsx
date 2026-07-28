@@ -28,25 +28,16 @@ const DISCIPLINA_COLOR: Record<Disciplina, { bg: string; text: string }> = {
   bateria:   { bg: "bg-cielo/15", text: "text-tinta" },
 };
 
-// ── Variante A: colores saturados (bandera del orgullo) ──
+// ── Paleta reinterpretada para cada día ──
 const DIA_COLOR: Record<string, string> = {
-  Lunes:    "text-[#e32636]",    // rojo
-  Martes:   "text-[#ff8c00]",    // naranjo
-  Miércoles:"text-[#ffd700]",    // amarillo
-  Jueves:   "text-[#228b22]",    // verde
-  Viernes:  "text-[#1e90ff]",    // azul
-  Sábado:   "text-[#8b00ff]",    // violeta
+  Lunes:    "text-[#8b1a1a]",    // rojo profundo, casi teatral
+  Martes:   "text-[#b85c3a]",    // terracota
+  Miércoles:"text-[#c4a44a]",    // mostaza cálido
+  Jueves:   "text-[#7a9e7a]",    // verde salvia
+  Viernes:  "text-[#445a81]",    // azul del logotipo
+  Sábado:   "text-[#5a3a5e]",    // ciruela oscuro
 };
 
-// ── Variante B: versiones desaturadas (comentada) ──
-// const DIA_COLOR: Record<string, string> = {
-//   Lunes:    "text-[#c27a7a]",    // rojo → terracota apagado
-//   Martes:   "text-[#c99b6d]",    // naranjo → ocre/durazno suave
-//   Miércoles:"text-[#b8a65a]",    // amarillo → mostaza apagado
-//   Jueves:   "text-[#7a9e7a]",    // verde → salvia apagado
-//   Viernes:  "text-[#6a7a9e]",    // azul → azul grisáceo
-//   Sábado:   "text-[#9a7a9e]",    // violeta → malva/lavanda apagado
-// };
 
 
 export default async function HorariosPage() {
