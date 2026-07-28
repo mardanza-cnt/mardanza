@@ -1,3 +1,4 @@
+import IntroEditorial from "@/components/intro-editorial";
 import DisciplineFilter from "@/components/discipline-filter";
 import { getActividades } from "@/lib/data";
 
@@ -8,7 +9,7 @@ export default async function ActividadesPage() {
 
   return (
     <main className="mx-auto max-w-2xl px-6 py-12 md:px-12">
-      <h1 className="mb-6 font-display text-2xl text-tinta">ACTIVIDADES</h1>
+      <IntroEditorial />
       <DisciplineFilter actividades={actividades} />
     </main>
   );

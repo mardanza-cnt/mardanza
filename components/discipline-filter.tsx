@@ -5,7 +5,8 @@ import type { Actividad, Disciplina } from "@/lib/types";
 import { DISCIPLINA_LABEL } from "@/lib/types";
 import ActivityCard from "@/components/activity-card";
 
-const DISCIPLINAS: Disciplina[] = ["danza", "teatro", "bateria", "canto", "breakdance", "circo", "infantil", "musica", "dojo"];
+const DISCIPLINAS: Disciplina[] = ["danza", "teatro", "breakdance", "circo", "dojo", "telas", "canto", "bateria"];
+
 
 export default function DisciplineFilter({ actividades }: { actividades: Actividad[] }) {
   const [activa, setActiva] = useState<Disciplina | "todas">("todas");
