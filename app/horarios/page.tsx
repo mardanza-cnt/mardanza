@@ -18,7 +18,7 @@ function agruparPorDia(talleres: Taller[]) {
 // Colores editoriales apagados para cada disciplina.
 // Fondo claro + texto oscuro garantiza WCAG AA en text-xs.
 const DISCIPLINA_COLOR: Record<Disciplina, { bg: string; text: string }> = {
-  danza:     { bg: "bg-tinta", text: "text-papel" },
+  danza:     { bg: "bg-arena/25", text: "text-tinta" },
   teatro:    { bg: "bg-arena/20", text: "text-tinta" },
   breakdance:{ bg: "bg-cielo/25", text: "text-tinta" },
   circo:     { bg: "bg-menta/20", text: "text-tinta" },
@@ -26,6 +26,16 @@ const DISCIPLINA_COLOR: Record<Disciplina, { bg: string; text: string }> = {
   telas:     { bg: "bg-tinta/10", text: "text-tinta" },
   canto:     { bg: "bg-arena/30", text: "text-tinta" },
   bateria:   { bg: "bg-cielo/15", text: "text-tinta" },
+};
+
+// Versiones desaturadas de los colores del arcoíris para cada día.
+const DIA_COLOR: Record<string, string> = {
+  Lunes:    "text-[#c27a7a]",    // rojo → terracota apagado
+  Martes:   "text-[#c99b6d]",    // naranjo → ocre/durazno suave
+  Miércoles:"text-[#b8a65a]",    // amarillo → mostaza apagado
+  Jueves:   "text-[#7a9e7a]",    // verde → salvia apagado
+  Viernes:  "text-[#6a7a9e]",    // azul → azul grisáceo (cerca del azul de marca)
+  Sábado:   "text-[#9a7a9e]",    // violeta → malva/lavanda apagado
 };
 
 export default async function HorariosPage() {
@@ -68,9 +78,10 @@ export default async function HorariosPage() {
 
             return (
               <section key={dia}>
-                <h2 className="mb-4 font-display text-2xl uppercase tracking-wide text-tinta md:text-3xl">
+                <h2 className={`mb-4 font-display text-2xl uppercase tracking-wide md:text-3xl ${DIA_COLOR[dia] ?? "text-tinta"}`}>
                   {dia}
                 </h2>
+
                 <div className="space-y-3">
                   {talleresDelDia.map((t) => {
                     const color = DISCIPLINA_COLOR[t.disciplina] ?? { bg: "bg-tinta", text: "text-papel" };

@@ -27,33 +27,29 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 px-6 py-4 transition-colors duration-500 md:px-12 ${
-        scrolled ? "bg-papel/90 backdrop-blur-sm" : "bg-transparent"
+        scrolled ? "bg-papel/90 backdrop-blur-sm" : "bg-gradient-to-b from-tinta/60 to-transparent"
       }`}
     >
       <div className="flex items-center justify-between">
-        {/* Logo — aparece/desaparece con scroll */}
-        <Link href="/">
-          <div
-            className={`transition-all duration-500 ease-in-out ${
-              scrolled
-                ? "scale-100 opacity-100"
-                : "scale-75 opacity-0 pointer-events-none"
-            }`}
-          >
+        {/* Logo — siempre visible, cambia de color según scroll */}
+        <Link href="/" className="cursor-pointer shrink-0">
+          <div className="transition-all duration-500 ease-in-out">
             <Image
-              src="/logo-blue.png"
+              src={scrolled ? "/logo-blue.png" : "/logo-white.png"}
               alt="Mardanza"
-              width={120}
-              height={32}
+              width={100}
+              height={27}
               priority
+              className="h-auto w-auto"
             />
           </div>
         </Link>
 
+
         {/* Hamburger button — visible on mobile */}
         <button
           className={`md:hidden transition-colors ${
-            scrolled ? "text-tinta" : "text-papel"
+            scrolled ? "text-tinta" : "text-papel/90"
           }`}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
@@ -64,7 +60,7 @@ export default function Header() {
         {/* Desktop nav */}
         <nav
           className={`hidden gap-8 text-base font-medium tracking-wide md:flex ${
-            scrolled ? "text-tinta" : "text-papel"
+            scrolled ? "text-tinta" : "text-papel/90"
           }`}
         >
           {NAV_LINKS.map((link) => (
@@ -81,7 +77,7 @@ export default function Header() {
           className={`mt-4 flex flex-col gap-3 border-t pt-4 md:hidden ${
             scrolled
               ? "border-tinta/10 text-tinta"
-              : "border-papel/20 text-papel"
+              : "border-papel/20 text-papel/90"
           }`}
         >
           {NAV_LINKS.map((link) => (
@@ -97,5 +93,6 @@ export default function Header() {
         </nav>
       )}
     </header>
+
   );
 }
