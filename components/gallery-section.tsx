@@ -16,6 +16,11 @@ const PHOTOS = [
   { src: "/images/gallery-07.webp", alt: "Díptico teatro, cruz" },
   { src: "/images/gallery-05.webp", alt: "Niños Academia de Música" },
   { src: "/images/gallery-13.webp", alt: "Elenco, telón rojo" },
+  { src: "/images/gallery-14.webp", alt: "Elenco completo" },
+  { src: "/images/gallery-15.webp", alt: "Dúo danza" },
+  { src: "/images/gallery-16.webp", alt: "Músicos en vivo" },
+  { src: "/images/gallery-17.webp", alt: "Ensayo teatro" },
+  { src: "/images/gallery-18.webp", alt: "Compañía reunida" },
   { src: "/images/gallery-08.webp", alt: "Silueta en salto" },
   { src: "/images/gallery-01.webp", alt: "Trío rojo" }, // cierra el loop
 ];
@@ -25,8 +30,8 @@ const ALL_PHOTOS = [...PHOTOS, ...PHOTOS];
 const PANEL_WIDTH = 420;
 const GAP = 24;
 const ITEM_WIDTH = PANEL_WIDTH + GAP; // 444
-const HALF_SET = PHOTOS.length; // 14
-const PHOTO_HALF = HALF_SET * ITEM_WIDTH; // 6216
+const HALF_SET = PHOTOS.length; // 19
+const PHOTO_HALF = HALF_SET * ITEM_WIDTH; // 8436
 const PHOTO_SPEED = 0.3; // px per frame
 
 export default function GallerySection() {
@@ -70,7 +75,7 @@ export default function GallerySection() {
     return (
       <section className="bg-tinta px-6 py-16 md:px-12">
         <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {PHOTOS.slice(0, 13).map((photo, i) => (
+          {PHOTOS.slice(0, -1).map((photo, i) => (
             <div key={i} className="relative aspect-[4/3] overflow-hidden">
               <Image
                 src={photo.src}

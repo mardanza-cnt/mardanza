@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Sparkles, Theater, Drum, MicVocal } from "lucide-react";
 
 const DISCIPLINAS = [
@@ -20,6 +21,37 @@ export default function QuienesSomosPage() {
         Texto de ejemplo — reemplazar por la historia real: cuándo se formó Mardanza,
         quiénes la fundaron, qué la mueve como agrupación cultural en Cañete.
       </p>
+
+      {/* ── Galería editorial ── */}
+      <div className="mb-12 grid grid-cols-1 gap-4 sm:grid-cols-3">
+        <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+          <Image
+            src="/images/quienes-somos-01.webp"
+            alt="Mardanza — agrupación cultural"
+            fill
+            sizes="(max-width: 640px) 100vw, 33vw"
+            className="object-cover"
+          />
+        </div>
+        <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+          <Image
+            src="/images/quienes-somos-02.webp"
+            alt="Mardanza — territorio en movimiento"
+            fill
+            sizes="(max-width: 640px) 100vw, 33vw"
+            className="object-cover"
+          />
+        </div>
+        <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+          <Image
+            src="/images/quienes-somos-03.webp"
+            alt="Mardanza — Cañete"
+            fill
+            sizes="(max-width: 640px) 100vw, 33vw"
+            className="object-cover"
+          />
+        </div>
+      </div>
 
       <p className="mb-4 text-xs tracking-wide text-tinta/60">DISCIPLINAS</p>
       <div className="grid grid-cols-2 gap-3">
