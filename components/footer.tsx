@@ -22,10 +22,33 @@ export default function Footer() {
             </a>
           </p>
         </div>
-        <div className="flex gap-4">
-          <a href="https://www.instagram.com/mardanza_/" target="_blank" rel="noopener noreferrer" className="hover:text-menta">Instagram</a>
-          <a href="https://web.facebook.com/centromardanza/" target="_blank" rel="noopener noreferrer" className="hover:text-menta">Facebook</a>
+        <div className="flex items-center gap-4">
+          <a
+            href="https://www.instagram.com/mardanza_/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-tinta/70 transition-colors hover:text-tinta"
+            aria-label="Instagram @mardanza_"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <circle cx="12" cy="12" r="5" />
+              <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none" />
+            </svg>
+          </a>
+          <a
+            href="https://web.facebook.com/centromardanza/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-tinta/70 transition-colors hover:text-tinta"
+            aria-label="Facebook Centro Mardanza"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+            </svg>
+          </a>
         </div>
+
       </div>
     </footer>
   );
