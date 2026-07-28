@@ -28,15 +28,26 @@ const DISCIPLINA_COLOR: Record<Disciplina, { bg: string; text: string }> = {
   bateria:   { bg: "bg-cielo/15", text: "text-tinta" },
 };
 
-// Versiones desaturadas de los colores del arcoíris para cada día.
+// ── Variante A: colores saturados (bandera del orgullo) ──
 const DIA_COLOR: Record<string, string> = {
-  Lunes:    "text-[#c27a7a]",    // rojo → terracota apagado
-  Martes:   "text-[#c99b6d]",    // naranjo → ocre/durazno suave
-  Miércoles:"text-[#b8a65a]",    // amarillo → mostaza apagado
-  Jueves:   "text-[#7a9e7a]",    // verde → salvia apagado
-  Viernes:  "text-[#6a7a9e]",    // azul → azul grisáceo (cerca del azul de marca)
-  Sábado:   "text-[#9a7a9e]",    // violeta → malva/lavanda apagado
+  Lunes:    "text-[#e32636]",    // rojo
+  Martes:   "text-[#ff8c00]",    // naranjo
+  Miércoles:"text-[#ffd700]",    // amarillo
+  Jueves:   "text-[#228b22]",    // verde
+  Viernes:  "text-[#1e90ff]",    // azul
+  Sábado:   "text-[#8b00ff]",    // violeta
 };
+
+// ── Variante B: versiones desaturadas (comentada) ──
+// const DIA_COLOR: Record<string, string> = {
+//   Lunes:    "text-[#c27a7a]",    // rojo → terracota apagado
+//   Martes:   "text-[#c99b6d]",    // naranjo → ocre/durazno suave
+//   Miércoles:"text-[#b8a65a]",    // amarillo → mostaza apagado
+//   Jueves:   "text-[#7a9e7a]",    // verde → salvia apagado
+//   Viernes:  "text-[#6a7a9e]",    // azul → azul grisáceo
+//   Sábado:   "text-[#9a7a9e]",    // violeta → malva/lavanda apagado
+// };
+
 
 export default async function HorariosPage() {
   const talleres = await getTalleres();
@@ -65,12 +76,32 @@ export default async function HorariosPage() {
       {/* ── Contenido ── */}
       <div className="mx-auto max-w-3xl px-6 py-12 md:px-12">
         {/* Intro */}
-        <p className="mb-12 text-base leading-relaxed text-tinta/70">
-          Horario semanal de nuestros talleres regulares. Todos son abiertos a la comunidad
-          — no necesitas experiencia previa para sumarte.
+        <p className="mb-6 text-base leading-relaxed text-tinta/70">
+          El movimiento no para. Organiza tu semana y haz espacio para lo que te hace bien.
+        </p>
+        <p className="mb-8 text-base leading-relaxed text-tinta/70">
+          Un territorio para crear, aprender y conectar a través del cuerpo y las artes. Ya sea que estés comenzando o quieras profundizar, ¡aquí siempre hay un espacio para ti!
         </p>
 
+        {/* ¿Qué necesitas saber? */}
+        <div className="mb-12 rounded-lg border border-arena/30 bg-papel p-6">
+          <h2 className="mb-3 font-display text-lg uppercase tracking-wide text-tinta">
+            ¿Qué necesitas saber?
+          </h2>
+          <ul className="space-y-2 text-base text-tinta/70">
+            <li className="flex items-start gap-2">
+              <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-tinta/40" />
+              No se requiere experiencia previa para los niveles iniciales.
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-tinta/40" />
+              Profesores profesionales acompañando tu proceso.
+            </li>
+          </ul>
+        </div>
+
         {/* Grilla por día */}
+
         <div className="space-y-10">
           {DIAS_ORDEN.map((dia) => {
             const talleresDelDia = porDia.get(dia) ?? [];
@@ -130,12 +161,12 @@ export default async function HorariosPage() {
         {/* ── CTA WhatsApp ── */}
         <section className="mt-16 rounded-lg border border-arena/30 bg-papel p-8 text-center">
           <h2 className="font-display text-2xl uppercase tracking-wide text-tinta">
-            ¿Quieres sumarte?
+            Te esperamos en nuestra casa
           </h2>
           <p className="mx-auto mt-3 max-w-md text-base leading-relaxed text-tinta/70">
-            Todos nuestros talleres son abiertos a la comunidad. Escríbenos por
-            WhatsApp y te contamos los detalles para empezar.
+            ¿Tienes dudas sobre alguna clase o disciplina? Escríbenos por mensaje interno (DM) o al WhatsApp para ayudarte.
           </p>
+
           <a
             href="https://wa.me/56986279618"
             target="_blank"
