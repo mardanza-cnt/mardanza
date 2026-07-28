@@ -21,3 +21,23 @@ export const DISCIPLINA_LABEL: Record<Disciplina, string> = {
   canto: "Canto",
   bateria: "Batería",
 };
+
+export type DiaSemana = "Lunes" | "Martes" | "Miércoles" | "Jueves" | "Viernes" | "Sábado";
+
+export const DIAS_ORDEN: DiaSemana[] = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+
+export const UBICACION_LABEL: Record<string, string> = {
+  mardanza: "Centro Cultural Mardanza — Esmeralda #026, Cañete Centro",
+  tucapel: "Gimnasio Municipal Tucapel — Tucapel #043, Cañete Centro",
+};
+
+export interface Taller {
+  _id: string;
+  nombre: string;
+  dia: DiaSemana;
+  horaInicio: string;
+  horaFin: string;
+  ubicacion: string;
+  disciplina: Disciplina;
+}
+

@@ -1,5 +1,6 @@
 import { sanityClient, sanityEnabled } from "@/lib/sanity";
-import type { Actividad } from "@/lib/types";
+import type { Actividad, Taller } from "@/lib/types";
+
 
 // Datos de ejemplo — se muestran solo mientras no hay un dataset de Sanity
 // conectado (ver NEXT_PUBLIC_SANITY_PROJECT_ID en .env). Reemplazar por la
@@ -42,3 +43,21 @@ export async function getActividades(): Promise<Actividad[]> {
   }
   return sanityClient.fetch(ACTIVIDADES_QUERY);
 }
+
+const TALLERES_QUERY = `*[_type == "taller"] | order(dia asc, horaInicio asc) {
+  _id,
+  nombre,
+  dia,
+  horaInicio,
+  horaFin,
+  ubicacion,
+  disciplina
+}`;
+
+export async function getTalleres(): Promise<Taller[]> {
+  if (!sanityEnabled || !sanityClient) {
+    return [];
+  }
+  return sanityClient.fetch(TALLERES_QUERY);
+}
+

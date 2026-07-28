@@ -7,9 +7,11 @@ import { Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
   { href: "/actividades", label: "Actividades" },
+  { href: "/horarios", label: "Horarios" },
   { href: "/quienes-somos", label: "Quiénes somos" },
   { href: "/contacto", label: "Contacto" },
 ];
+
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
