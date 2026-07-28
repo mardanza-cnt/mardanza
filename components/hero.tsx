@@ -18,7 +18,7 @@ export default function Hero() {
       </div>
 
       {/* ── Foto con zoom lento + grano ── */}
-      <div className="animate-fadeIn-delayed relative h-[50vh] min-h-[320px] w-full overflow-hidden bg-tinta md:h-[70vh]">
+      <div className="animate-fadeIn-delayed relative h-[50vh] min-h-[320px] w-full overflow-hidden md:h-[70vh]">
         {/* Imagen de fondo con zoom */}
         <div className="animate-heroZoom absolute inset-0 h-full w-full">
 
@@ -26,8 +26,8 @@ export default function Hero() {
             src="/images/hero-mardanza.webp"
             alt=""
             fill
-            className="object-contain"
-            style={{ objectPosition: "50% 50%" }}
+            className="object-cover"
+            style={{ objectPosition: "50% 78%" }}
             priority
           />
 
