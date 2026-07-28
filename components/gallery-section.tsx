@@ -20,28 +20,26 @@ const PHOTOS = [
   { src: "/images/gallery-01.webp", alt: "Trío rojo" }, // cierra el loop
 ];
 
-const ALL_ITEMS = [...PHOTOS, ...PHOTOS];
+const ALL_PHOTOS = [...PHOTOS, ...PHOTOS];
 
 const PANEL_WIDTH = 420;
 const GAP = 24;
 const ITEM_WIDTH = PANEL_WIDTH + GAP; // 444
 const HALF_SET = PHOTOS.length; // 14
-const HALF_WIDTH = HALF_SET * ITEM_WIDTH; // 6216
-const SPEED = 0.3; // px per frame (~18px/s at 60fps → ~5.8min for full loop)
+const PHOTO_HALF = HALF_SET * ITEM_WIDTH; // 6216
+const PHOTO_SPEED = 0.3; // px per frame
 
 export default function GallerySection() {
-  const trackRef = useRef<HTMLDivElement>(null);
-  const posRef = useRef(0);
+  const photoTrackRef = useRef<HTMLDivElement>(null);
+  const photoPosRef = useRef(0);
   const rafRef = useRef<number>(0);
   const hoveringRef = useRef(false);
   const [reducedMotion, setReducedMotion] = useState(false);
-  const [ready, setReady] = useState(false);
 
   // Detect prefers-reduced-motion
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     setReducedMotion(mq.matches);
-    setReady(true);
     const onChange = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
     mq.addEventListener("change", onChange);
     return () => mq.removeEventListener("change", onChange);
@@ -50,12 +48,12 @@ export default function GallerySection() {
   // JS-driven marquee loop
   const tick = useCallback(() => {
     if (!hoveringRef.current) {
-      posRef.current -= SPEED;
-      if (posRef.current <= -HALF_WIDTH) {
-        posRef.current += HALF_WIDTH;
+      photoPosRef.current -= PHOTO_SPEED;
+      if (photoPosRef.current <= -PHOTO_HALF) {
+        photoPosRef.current += PHOTO_HALF;
       }
-      if (trackRef.current) {
-        trackRef.current.style.transform = `translateX(${posRef.current}px)`;
+      if (photoTrackRef.current) {
+        photoTrackRef.current.style.transform = `translateX(${photoPosRef.current}px)`;
       }
     }
     rafRef.current = requestAnimationFrame(tick);
@@ -71,9 +69,6 @@ export default function GallerySection() {
   if (reducedMotion) {
     return (
       <section className="bg-tinta px-6 py-16 md:px-12">
-        <h2 className="mb-8 font-display text-2xl tracking-wide text-papel md:text-3xl">
-          DANZA
-        </h2>
         <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {PHOTOS.slice(0, 13).map((photo, i) => (
             <div key={i} className="relative aspect-[4/3] overflow-hidden">
@@ -93,19 +88,15 @@ export default function GallerySection() {
 
   return (
     <section className="overflow-hidden bg-tinta py-16">
-      <div className="mb-8 px-6 md:px-12">
-        <h2 className="font-display text-2xl tracking-wide text-papel md:text-3xl">DANZA</h2>
-      </div>
-
-      {/* Marquee track */}
+      {/* Photo marquee */}
       <div
-        ref={trackRef}
+        ref={photoTrackRef}
         className="flex select-none"
         style={{ gap: GAP, width: "max-content", willChange: "transform" }}
         onMouseEnter={() => { hoveringRef.current = true; }}
         onMouseLeave={() => { hoveringRef.current = false; }}
       >
-        {ALL_ITEMS.map((photo, i) => (
+        {ALL_PHOTOS.map((photo, i) => (
           <div
             key={i}
             className="relative flex-shrink-0 overflow-hidden"
