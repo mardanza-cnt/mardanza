@@ -8,6 +8,7 @@ import { Menu, X } from "lucide-react";
 const NAV_LINKS = [
   { href: "/actividades", label: "Actividades" },
   { href: "/horarios", label: "Horarios" },
+  { href: "/colaboradores", label: "Colaboradores" },
   { href: "/quienes-somos", label: "Quiénes somos" },
   { href: "/contacto", label: "Contacto" },
 ];

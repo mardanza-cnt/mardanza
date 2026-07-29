@@ -41,3 +41,15 @@ export interface Taller {
   disciplina: Disciplina;
 }
 
+export type ColorColaborador = "rojo" | "terracota" | "mostaza" | "salvia" | "azul" | "ciruela";
+
+export interface Colaborador {
+  _id: string;
+  nombre: string;
+  descripcion: string;
+  colorAsignado?: ColorColaborador;
+  orden?: number;
+  instagram?: string;
+  logoUrl?: string;
+}
+

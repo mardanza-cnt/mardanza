@@ -1,5 +1,5 @@
 import { sanityClient, sanityEnabled } from "@/lib/sanity";
-import type { Actividad, Taller } from "@/lib/types";
+import type { Actividad, Taller, Colaborador } from "@/lib/types";
 
 
 // Datos de ejemplo — se muestran solo mientras no hay un dataset de Sanity
@@ -59,5 +59,22 @@ export async function getTalleres(): Promise<Taller[]> {
     return [];
   }
   return sanityClient.fetch(TALLERES_QUERY);
+}
+
+const COLABORADORES_QUERY = `*[_type == "colaborador"] | order(orden asc) {
+  _id,
+  nombre,
+  descripcion,
+  colorAsignado,
+  orden,
+  instagram,
+  "logoUrl": logo.asset->url
+}`;
+
+export async function getColaboradores(): Promise<Colaborador[]> {
+  if (!sanityEnabled || !sanityClient) {
+    return [];
+  }
+  return sanityClient.fetch(COLABORADORES_QUERY);
 }
 
