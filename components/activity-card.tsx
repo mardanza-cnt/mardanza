@@ -7,18 +7,20 @@ import type { Actividad } from "@/lib/types";
 import { DISCIPLINA_LABEL } from "@/lib/types";
 
 const DIA_SEMANA = ["DOM", "LUN", "MAR", "MIÉ", "JUE", "VIE", "SÁB"];
+const MES = ["ENE", "FEB", "MAR", "ABR", "MAY", "JUN", "JUL", "AGO", "SEP", "OCT", "NOV", "DIC"];
 
 function parseFecha(fecha: string) {
   const d = new Date(`${fecha}T00:00:00`);
   return {
     dia: DIA_SEMANA[d.getDay()],
     numero: d.getDate(),
+    mes: MES[d.getMonth()],
   };
 }
 
 export default function ActivityCard({ actividad }: { actividad: Actividad }) {
   const [open, setOpen] = useState(false);
-  const { dia, numero } = parseFecha(actividad.fecha);
+  const { dia, numero, mes } = parseFecha(actividad.fecha);
   const tieneImagen = Boolean(actividad.imagenUrl);
 
   return (
@@ -31,7 +33,8 @@ export default function ActivityCard({ actividad }: { actividad: Actividad }) {
         <div className="flex md:flex-col md:w-20 md:flex-none items-center justify-center gap-2 md:gap-0 bg-tinta px-4 py-2 md:px-0 md:py-4 text-menta">
           <span className="font-display text-xs tracking-wide">{dia}</span>
           <span className="font-display text-3xl leading-none">{numero}</span>
-          <span className="md:mt-1 text-xs">{actividad.hora}</span>
+          <span className="text-[10px] font-semibold md:mt-0.5">{mes}</span>
+          <span className="md:mt-0.5 text-xs">{actividad.hora}</span>
         </div>
 
         <div
