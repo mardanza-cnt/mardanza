@@ -13,8 +13,7 @@ export default function Hero() {
             src="/images/hero-mardanza.webp"
             alt=""
             fill
-            className="object-cover"
-            style={{ objectPosition: "50% 78%" }}
+            className="object-cover object-[50%_80%] md:object-[50%_78%]"
             priority
           />
 
