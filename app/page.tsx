@@ -1,5 +1,6 @@
 import Hero from "@/components/hero";
 import IntroEditorial from "@/components/intro-editorial";
+import Manifiesto from "@/components/manifiesto";
 import GallerySection from "@/components/gallery-section";
 import ActivityCard from "@/components/activity-card";
 import { getActividades } from "@/lib/data";
@@ -24,6 +25,9 @@ export default async function Home() {
           ))}
         </div>
       </section>
+
+      {/* Manifiesto — Donde el mar se vuelve arena */}
+      <Manifiesto />
 
       {/* Acto III — Galería DANZA (scroll horizontal tipo Apple) */}
       <GallerySection />
