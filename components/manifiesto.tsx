@@ -65,10 +65,10 @@ export default function Manifiesto() {
           />
         </div>
 
-        {/* Texto centrado */}
+        {/* Texto en el tercio inferior */}
         <div
           ref={textRef}
-          className="absolute inset-0 flex items-center justify-center px-6 opacity-0"
+          className="absolute inset-0 flex items-end justify-center px-6 pb-16 opacity-0"
         >
           <h2 className="font-sans text-center text-5xl font-extralight tracking-[0.15em] text-white lg:text-6xl">
             Donde el mar

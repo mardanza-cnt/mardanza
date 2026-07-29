@@ -20,11 +20,17 @@ export default function QuienesSomosPage() {
         TERRITORIO EN MOVIMIENTO
       </span>
 
-      {/* TODO: reemplazar por la historia real que envía Mardanza (perfil, historia) */}
-      <p className="mb-10 text-sm leading-relaxed text-tinta/85">
-        Texto de ejemplo — reemplazar por la historia real: cuándo se formó Mardanza,
-        quiénes la fundaron, qué la mueve como agrupación cultural en Cañete.
-      </p>
+      <div className="mb-10 space-y-4 text-sm leading-relaxed text-tinta/85">
+        <p>
+          Mardanza nació en Cañete como un espacio artístico independiente para la enseñanza y difusión de disciplinas del movimiento. En una ciudad que tiene pocos espacios para aprender y mostrar lo que se crea, Mardanza se convirtió en territorio: un lugar donde el cuerpo tiene espacio para crecer.
+        </p>
+        <p>
+          Liderado por Roberto Roa y María Ángela Medrano, hoy somos un centro cultural activo en la Provincia de Arauco, con talleres semanales de danza contemporánea, teatro, breakdance, circo, tela aérea, artes marciales y más. Participamos en festivales, muestras y encuentros que ponen el arte cañetino en escena — porque creemos que el movimiento es también una forma de habitar y transformar el lugar donde vivimos.
+        </p>
+        <p>
+          Territorio en Movimiento no es solo un lema. Es la manera en que entendemos la cultura: viva, presente, en permanente construcción.
+        </p>
+      </div>
 
       {/* ── Galería editorial ── */}
       <div className="mb-12 grid grid-cols-1 gap-4">
