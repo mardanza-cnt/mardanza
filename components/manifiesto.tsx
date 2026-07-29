@@ -41,7 +41,7 @@ export default function Manifiesto() {
         ref={ref}
         className="absolute inset-0 flex items-center justify-center px-6 opacity-0"
       >
-        <h2 className="font-display text-center text-4xl leading-tight text-white md:text-6xl lg:text-7xl">
+        <h2 className="font-sans text-center text-3xl font-extralight tracking-[0.15em] text-white md:text-5xl lg:text-6xl">
           Donde el mar
           <br />
           se vuelve arena

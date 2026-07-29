@@ -32,7 +32,7 @@ const GAP = 24;
 const ITEM_WIDTH = PANEL_WIDTH + GAP; // 444
 const HALF_SET = PHOTOS.length; // 19
 const PHOTO_HALF = HALF_SET * ITEM_WIDTH; // 8436
-const PHOTO_SPEED = 0.3; // px per frame
+const PHOTO_SPEED = 0.42; // px per frame (~40% faster)
 
 export default function GallerySection() {
   const photoTrackRef = useRef<HTMLDivElement>(null);
