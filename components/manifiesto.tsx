@@ -52,6 +52,7 @@ export default function Manifiesto() {
             src="/images/manifesto.webp"
             alt=""
             fill
+            sizes="(max-width: 768px) 100vw, 100vw"
             className="object-cover"
             style={{ objectPosition: "70% center" }}
             priority
@@ -77,6 +78,7 @@ export default function Manifiesto() {
             src="/images/manifesto.webp"
             alt=""
             fill
+            sizes="100vw"
             className="object-cover"
             style={{ objectPosition: "70% center" }}
             priority

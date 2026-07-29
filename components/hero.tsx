@@ -5,14 +5,15 @@ export default function Hero() {
   return (
     <section className="relative text-center">
       {/* ── Foto con zoom lento + grano + logo superpuesto ── */}
-      <div className="relative h-[70vh] min-h-[400px] w-full overflow-hidden md:h-[100vh] md:min-h-[600px]">
-        {/* Imagen de fondo con zoom */}
-        <div className="animate-heroZoom absolute inset-0 h-full w-full">
+      <div className="group relative h-[70vh] min-h-[400px] w-full overflow-hidden md:h-[100vh] md:min-h-[600px]">
+        {/* Imagen de fondo con zoom + hover zoom en desktop */}
+        <div className="animate-heroZoom absolute inset-0 h-full w-full transition-transform duration-[1200ms] ease-out md:group-hover:scale-105">
 
           <Image
             src="/images/hero-mardanza.webp"
             alt=""
             fill
+            sizes="100vw"
             className="object-cover object-[50%_80%] md:object-[50%_78%]"
             priority
           />
@@ -40,7 +41,7 @@ export default function Hero() {
               width={450}
               height={119}
               priority
-              className="h-auto w-[70vw] max-w-[450px] md:w-[50vw] md:max-w-[600px]"
+              className="animate-breathe h-auto w-[70vw] max-w-[450px] md:w-[50vw] md:max-w-[600px]"
             />
           </div>
         </div>

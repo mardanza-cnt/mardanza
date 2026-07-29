@@ -48,6 +48,16 @@ body {
   }
 }
 
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
 /* ── Utility classes ───────────────────────────────────── */
 
 .animate-fadeIn {
@@ -60,6 +70,16 @@ body {
 
 .animate-heroZoom {
   animation: heroZoom 25s ease-in-out infinite alternate;
+}
+
+.animate-breathe {
+  animation: breathe 3.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-breathe {
+    animation: none;
+  }
 }
 
 /* Scroll-triggered fade-up (used via Intersection Observer) */
