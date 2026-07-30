@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { getColaboradores } from "@/lib/data";
 import ColaboradorCard from "@/components/colaborador-card";
+import ColaboradorGallery from "@/components/colaborador-gallery";
 
 export const revalidate = 60;
 
@@ -45,6 +46,18 @@ export default async function ColaboradoresPage() {
           <p className="text-center text-tinta/50">
             No hay colaboradores registrados por ahora.
           </p>
+        )}
+
+        {/* ── Galería de fotos por colaborador ── */}
+        {colaboradores.some((c) => c.fotosActividad && c.fotosActividad.length > 0) && (
+          <section className="mt-16 border-t border-tinta/10 pt-12">
+            <h2 className="mb-8 font-display text-2xl uppercase tracking-[0.15em] text-tinta md:text-3xl">
+              Galería de actividades
+            </h2>
+            {colaboradores.map((colaborador) => (
+              <ColaboradorGallery key={colaborador._id} colaborador={colaborador} />
+            ))}
+          </section>
         )}
       </div>
     </main>

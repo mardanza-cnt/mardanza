@@ -68,7 +68,11 @@ const COLABORADORES_QUERY = `*[_type == "colaborador"] | order(orden asc) {
   colorAsignado,
   orden,
   instagram,
-  "logoUrl": logo.asset->url
+  "logoUrl": logo.asset->url,
+  "fotosActividad": fotosActividad[]{
+    _key,
+    "url": asset->url
+  }
 }`;
 
 export async function getColaboradores(): Promise<Colaborador[]> {

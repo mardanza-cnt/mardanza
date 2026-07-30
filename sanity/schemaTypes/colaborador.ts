@@ -50,6 +50,17 @@ export default defineType({
       title: "Instagram",
       type: "url",
     }),
+    defineField({
+      name: "fotosActividad",
+      title: "Fotos de actividades",
+      type: "array",
+      of: [
+        {
+          type: "image",
+          options: { hotspot: true },
+        },
+      ],
+    }),
   ],
   orderings: [
     {

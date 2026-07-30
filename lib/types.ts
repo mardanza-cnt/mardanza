@@ -51,5 +51,9 @@ export interface Colaborador {
   orden?: number;
   instagram?: string;
   logoUrl?: string;
+  fotosActividad?: {
+    _key: string;
+    url: string;
+  }[];
 }
 
