@@ -1,7 +1,8 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
+import { X } from "lucide-react";
 import type { Colaborador, ColorColaborador } from "@/lib/types";
 
 const COLOR_MAP: Record<ColorColaborador, string> = {
@@ -22,6 +23,8 @@ interface Props {
 export default function ColaboradorGallery({ colaborador }: Props) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const accent = COLOR_MAP[colaborador.colorAsignado ?? "azul"] ?? COLOR_DEFAULT;
+
+  const [lightboxUrl, setLightboxUrl] = useState<string | null>(null);
 
   const fotos = colaborador.fotosActividad;
   if (!fotos || fotos.length === 0) return null;
@@ -76,9 +79,10 @@ export default function ColaboradorGallery({ colaborador }: Props) {
           style={{ scrollbarWidth: "thin", scrollbarColor: `${accent}40 transparent` }}
         >
           {fotos.map((foto, idx) => (
-            <div
+            <button
               key={foto._key ?? idx}
-              className="relative aspect-[4/3] w-[75vw] flex-shrink-0 snap-start overflow-hidden rounded-xl md:w-[320px]"
+              onClick={() => setLightboxUrl(foto.url)}
+              className="relative aspect-[4/3] w-[75vw] flex-shrink-0 snap-start overflow-hidden rounded-xl text-left md:w-[320px]"
             >
               <Image
                 src={foto.url}
@@ -87,10 +91,34 @@ export default function ColaboradorGallery({ colaborador }: Props) {
                 sizes="(max-width: 768px) 75vw, 320px"
                 className="object-cover transition-transform duration-500 hover:scale-105"
               />
-            </div>
+            </button>
           ))}
         </div>
       </div>
+
+      {/* Lightbox overlay (mismo patrón que activity-card.tsx) */}
+      {lightboxUrl && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
+          onClick={() => setLightboxUrl(null)}
+        >
+          <button
+            className="absolute right-4 top-4 text-white hover:text-white/70"
+            onClick={() => setLightboxUrl(null)}
+            aria-label="Cerrar"
+          >
+            <X size={32} />
+          </button>
+          <Image
+            src={lightboxUrl}
+            alt={`${colaborador.nombre} — actividad`}
+            width={1200}
+            height={800}
+            className="max-h-[85vh] max-w-2xl object-contain"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </section>
   );
 }

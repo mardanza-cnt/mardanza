@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import type { Colaborador, ColorColaborador } from "@/lib/types";
 
@@ -21,7 +20,6 @@ interface Props {
 }
 
 export default function ColaboradorCard({ colaborador }: Props) {
-  const [flipped, setFlipped] = useState(false);
   const bgColor = COLOR_MAP[colaborador.colorAsignado ?? "azul"] ?? COLOR_DEFAULT;
   const hasLink = Boolean(colaborador.instagram);
 
@@ -29,14 +27,9 @@ export default function ColaboradorCard({ colaborador }: Props) {
     <div
       className="group relative flex h-64 cursor-pointer flex-col items-center justify-center overflow-hidden rounded-xl p-6 text-center transition-all duration-500 md:h-72"
       style={{ backgroundColor: bgColor }}
-      onClick={() => setFlipped((prev) => !prev)}
     >
       {/* ── Estado normal: logo + nombre ── */}
-      <div
-        className={`flex flex-col items-center gap-4 transition-opacity duration-500 ${
-          flipped ? "opacity-0" : "opacity-100"
-        }`}
-      >
+      <div className="flex flex-col items-center gap-4 transition-opacity duration-500 group-hover:opacity-0 md:opacity-100">
         {colaborador.logoUrl ? (
           <div className="flex h-24 w-24 items-center justify-center rounded-full bg-white/20">
             <Image
@@ -59,12 +52,8 @@ export default function ColaboradorCard({ colaborador }: Props) {
         </h3>
       </div>
 
-      {/* ── Estado hover/tap: descripción ── */}
-      <div
-        className={`absolute inset-0 flex items-center justify-center p-6 transition-opacity duration-500 ${
-          flipped ? "opacity-100" : "opacity-0"
-        }`}
-      >
+      {/* ── Estado hover (desktop): descripción ── */}
+      <div className="absolute inset-0 flex items-center justify-center p-6 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
         <p className="text-sm leading-relaxed text-white/90 md:text-base">
           {colaborador.descripcion}
         </p>
@@ -78,7 +67,8 @@ export default function ColaboradorCard({ colaborador }: Props) {
         href={colaborador.instagram!}
         target="_blank"
         rel="noopener noreferrer"
-        className="block"
+        className="block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60"
+        onClick={(e) => e.currentTarget.blur()}
       >
         {cardContent}
       </a>
