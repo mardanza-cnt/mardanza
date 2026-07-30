@@ -1,24 +1,31 @@
 import Image from "next/image";
-import { Sparkles, Theater, Drum, MicVocal, Wind, Tent, Swords, Waves } from "lucide-react";
 
-const DISCIPLINAS = [
-  { nombre: "Danza", icon: Sparkles, bg: "bg-cielo", text: "text-tinta" },
-  { nombre: "Teatro", icon: Theater, bg: "bg-menta", text: "text-tinta" },
-  { nombre: "Breakdance", icon: Wind, bg: "bg-arena", text: "text-papel" },
-  { nombre: "Circo", icon: Tent, bg: "bg-tinta", text: "text-menta" },
-  { nombre: "Dojo", icon: Swords, bg: "bg-cielo", text: "text-tinta" },
-  { nombre: "Telas", icon: Waves, bg: "bg-menta", text: "text-tinta" },
-  { nombre: "Canto", icon: MicVocal, bg: "bg-arena", text: "text-papel" },
-  { nombre: "Batería", icon: Drum, bg: "bg-tinta", text: "text-menta" },
+interface Foto {
+  src: string;
+  alt: string;
+  /** Columnas que ocupa en desktop (1 o 2) */
+  cols: 1 | 2;
+  /** Filas que ocupa en desktop (1 o 2) */
+  rows: 1 | 2;
+  /** Aspect-ratio en mobile (2-column grid) */
+  mobileAspect: string;
+}
+
+const FOTOS: Foto[] = [
+  { src: "/images/quienes-somos-01.webp", alt: "Mardanza — agrupación cultural", cols: 2, rows: 1, mobileAspect: "aspect-[4/3]" },
+  { src: "/images/quienes-somos-02.webp", alt: "Mardanza — territorio en movimiento", cols: 1, rows: 1, mobileAspect: "aspect-square" },
+  { src: "/images/quienes-somos-03.webp", alt: "Mardanza — Cañete", cols: 1, rows: 1, mobileAspect: "aspect-[4/3]" },
+  { src: "/images/quienes-somos-04.webp", alt: "Mardanza — taller de danza", cols: 1, rows: 1, mobileAspect: "aspect-[4/3]" },
+  { src: "/images/quienes-somos-05.webp", alt: "Mardanza — presentación", cols: 2, rows: 1, mobileAspect: "aspect-[3/2]" },
+  { src: "/images/quienes-somos-06.webp", alt: "Mardanza — ensayo", cols: 1, rows: 1, mobileAspect: "aspect-square" },
+  { src: "/images/quienes-somos-07.webp", alt: "Mardanza — backstage", cols: 1, rows: 2, mobileAspect: "aspect-[4/3]" },
+  { src: "/images/quienes-somos-08.webp", alt: "Mardanza — comunidad", cols: 1, rows: 1, mobileAspect: "aspect-[4/3]" },
 ];
 
 export default function QuienesSomosPage() {
   return (
     <main className="mx-auto max-w-2xl px-6 py-12 md:px-12">
-      <h1 className="mb-1 font-display text-2xl text-tinta">QUIÉNES SOMOS</h1>
-      <span className="mb-6 inline-block rounded-full bg-tinta px-3 py-1 text-xs text-menta">
-        TERRITORIO EN MOVIMIENTO
-      </span>
+      <h1 className="mb-8 font-display text-2xl text-tinta">QUIÉNES SOMOS</h1>
 
       <div className="mb-10 space-y-4 text-sm leading-relaxed text-tinta/85">
         <p>
@@ -32,48 +39,34 @@ export default function QuienesSomosPage() {
         </p>
       </div>
 
-      {/* ── Galería editorial ── */}
-      <div className="mb-12 grid grid-cols-1 gap-4">
-        {/* Foto grande arriba — ancho completo */}
-        <div className="relative aspect-[16/9] overflow-hidden rounded-lg sm:aspect-[3/2]">
-          <Image
-            src="/images/quienes-somos-01.webp"
-            alt="Mardanza — agrupación cultural"
-            fill
-            sizes="(max-width: 640px) 100vw, 672px"
-            className="object-cover"
-            loading="eager"
-          />
-        </div>
-        {/* Dos fotos abajo lado a lado */}
-        <div className="grid grid-cols-2 gap-4">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
-            <Image
-              src="/images/quienes-somos-02.webp"
-              alt="Mardanza — territorio en movimiento"
-              fill
-              sizes="(max-width: 640px) 50vw, 336px"
-              className="object-cover"
-            />
-          </div>
-          <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
-            <Image
-              src="/images/quienes-somos-03.webp"
-              alt="Mardanza — Cañete"
-              fill
-              sizes="(max-width: 640px) 50vw, 336px"
-              className="object-cover"
-            />
-          </div>
-        </div>
-      </div>
-
-      <p className="mb-4 text-xs tracking-wide text-tinta/60">DISCIPLINAS</p>
-      <div className="grid grid-cols-2 gap-3">
-        {DISCIPLINAS.map(({ nombre, icon: Icon, bg, text }) => (
-          <div key={nombre} className={`rounded-lg p-4 ${bg}`}>
-            <Icon className={text} size={20} />
-            <p className={`mt-2 font-display text-sm ${text}`}>{nombre}</p>
+      {/* ── Galería tipo collage ── */}
+      <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
+        {FOTOS.map((foto) => (
+          <div
+            key={foto.src}
+            className={`group relative overflow-hidden rounded-lg ${
+              foto.cols === 2 ? "col-span-2" : "col-span-1"
+            } ${
+              foto.rows === 2 ? "row-span-2" : "row-span-1"
+            } ${foto.mobileAspect} ${
+              foto.rows === 2 ? "md:min-h-[400px]" : "md:min-h-[192px]"
+            }`}
+          >
+            {/* Imagen con hover zoom (solo desktop) */}
+            <div className="absolute inset-0 transition-transform duration-700 ease-out will-change-transform md:group-hover:scale-[1.04]">
+              <Image
+                src={foto.src}
+                alt={foto.alt}
+                fill
+                sizes={
+                  foto.cols === 2
+                    ? "(max-width: 640px) 100vw, 448px"
+                    : "(max-width: 640px) 50vw, 224px"
+                }
+                className="object-cover"
+                loading={foto.src.includes("01") ? "eager" : "lazy"}
+              />
+            </div>
           </div>
         ))}
       </div>
