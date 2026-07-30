@@ -3,23 +3,61 @@ import Image from "next/image";
 interface Foto {
   src: string;
   alt: string;
-  /** Columnas que ocupa en desktop (1 o 2) */
-  cols: 1 | 2;
-  /** Filas que ocupa en desktop (1 o 2) */
-  rows: 1 | 2;
+  /** Clases CSS para posicionamiento en desktop */
+  desktop: string;
   /** Aspect-ratio en mobile (2-column grid) */
   mobileAspect: string;
 }
 
 const FOTOS: Foto[] = [
-  { src: "/images/quienes-somos-01.webp", alt: "Mardanza — agrupación cultural", cols: 2, rows: 1, mobileAspect: "aspect-[4/3]" },
-  { src: "/images/quienes-somos-02.webp", alt: "Mardanza — territorio en movimiento", cols: 1, rows: 1, mobileAspect: "aspect-square" },
-  { src: "/images/quienes-somos-03.webp", alt: "Mardanza — Cañete", cols: 1, rows: 1, mobileAspect: "aspect-[4/3]" },
-  { src: "/images/quienes-somos-04.webp", alt: "Mardanza — taller de danza", cols: 1, rows: 1, mobileAspect: "aspect-[4/3]" },
-  { src: "/images/quienes-somos-05.webp", alt: "Mardanza — presentación", cols: 2, rows: 1, mobileAspect: "aspect-[3/2]" },
-  { src: "/images/quienes-somos-06.webp", alt: "Mardanza — ensayo", cols: 1, rows: 1, mobileAspect: "aspect-square" },
-  { src: "/images/quienes-somos-07.webp", alt: "Mardanza — backstage", cols: 1, rows: 2, mobileAspect: "aspect-[4/3]" },
-  { src: "/images/quienes-somos-08.webp", alt: "Mardanza — comunidad", cols: 1, rows: 1, mobileAspect: "aspect-[4/3]" },
+  {
+    src: "/images/quienes-somos-01.webp",
+    alt: "Mardanza — agrupación cultural",
+    desktop: "md:col-span-2 md:row-span-1 md:min-h-[200px]",
+    mobileAspect: "aspect-[4/3]",
+  },
+  {
+    src: "/images/quienes-somos-02.webp",
+    alt: "Mardanza — territorio en movimiento",
+    desktop: "md:col-span-1 md:row-span-1 md:min-h-[200px]",
+    mobileAspect: "aspect-square",
+  },
+  {
+    src: "/images/quienes-somos-03.webp",
+    alt: "Mardanza — Cañete",
+    desktop: "md:col-span-1 md:row-span-1 md:min-h-[200px]",
+    mobileAspect: "aspect-[4/3]",
+  },
+  {
+    src: "/images/quienes-somos-04.webp",
+    alt: "Mardanza — taller de danza",
+    desktop: "md:col-span-1 md:row-span-1 md:min-h-[200px]",
+    mobileAspect: "aspect-[4/3]",
+  },
+  {
+    src: "/images/quienes-somos-05.webp",
+    alt: "Mardanza — presentación",
+    desktop: "md:col-span-2 md:row-span-1 md:min-h-[200px]",
+    mobileAspect: "aspect-[3/2]",
+  },
+  {
+    src: "/images/quienes-somos-06.webp",
+    alt: "Mardanza — ensayo",
+    desktop: "md:col-span-1 md:row-span-1 md:min-h-[200px]",
+    mobileAspect: "aspect-square",
+  },
+  {
+    src: "/images/quienes-somos-07.webp",
+    alt: "Mardanza — backstage",
+    desktop: "md:col-span-1 md:row-span-2 md:min-h-[416px]",
+    mobileAspect: "aspect-[4/3]",
+  },
+  {
+    src: "/images/quienes-somos-08.webp",
+    alt: "Mardanza — comunidad",
+    desktop: "md:col-span-1 md:row-span-1 md:min-h-[200px]",
+    mobileAspect: "aspect-[4/3]",
+  },
 ];
 
 export default function QuienesSomosPage() {
@@ -44,13 +82,7 @@ export default function QuienesSomosPage() {
         {FOTOS.map((foto) => (
           <div
             key={foto.src}
-            className={`group relative overflow-hidden rounded-lg ${
-              foto.cols === 2 ? "col-span-2" : "col-span-1"
-            } ${
-              foto.rows === 2 ? "row-span-2" : "row-span-1"
-            } ${foto.mobileAspect} ${
-              foto.rows === 2 ? "md:min-h-[400px]" : "md:min-h-[192px]"
-            }`}
+            className={`group relative overflow-hidden rounded-lg ${foto.mobileAspect} md:aspect-auto ${foto.desktop}`}
           >
             {/* Imagen con hover zoom (solo desktop) */}
             <div className="absolute inset-0 transition-transform duration-700 ease-out will-change-transform md:group-hover:scale-[1.04]">
@@ -58,11 +90,7 @@ export default function QuienesSomosPage() {
                 src={foto.src}
                 alt={foto.alt}
                 fill
-                sizes={
-                  foto.cols === 2
-                    ? "(max-width: 640px) 100vw, 448px"
-                    : "(max-width: 640px) 50vw, 224px"
-                }
+                sizes="(max-width: 640px) 50vw, (max-width: 768px) 100vw, 224px"
                 className="object-cover"
                 loading={foto.src.includes("01") ? "eager" : "lazy"}
               />
