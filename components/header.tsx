@@ -47,15 +47,15 @@ export default function Header() {
         }`}
       >
         <div className="flex items-center justify-between">
-          {/* Logo — circular blanco sobre el Hero, wordmark al hacer scroll */}
+          {/* Logo — circular blanco sobre el Hero, circular azul al hacer scroll */}
           <Link href="/" className="cursor-pointer shrink-0">
             <div className="transition-all duration-500 ease-in-out">
               {scrolled && !menuOpen ? (
                 <Image
-                  src="/logo-white.png"
+                  src="/logo-header-blue.png"
                   alt="Mardanza"
-                  width={100}
-                  height={27}
+                  width={64}
+                  height={64}
                   priority
                   className="h-auto w-auto"
                 />
