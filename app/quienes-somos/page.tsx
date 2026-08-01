@@ -1,4 +1,5 @@
 import Image from "next/image";
+import LogoOriginal from "@/components/logo-original";
 
 interface Foto {
   src: string;
@@ -69,6 +70,9 @@ export default function QuienesSomosPage() {
         <p>
           Mardanza nació en Cañete como un espacio artístico independiente para la enseñanza y difusión de disciplinas del movimiento. En una ciudad que tiene pocos espacios para aprender y mostrar lo que se crea, Mardanza se convirtió en territorio: un lugar donde el cuerpo tiene espacio para crecer.
         </p>
+
+        <LogoOriginal />
+
         <p>
           Liderado por Roberto Roa y María Ángela Medrano, hoy somos un centro cultural activo en la Provincia de Arauco, con talleres semanales de danza contemporánea, teatro, breakdance, circo, tela aérea, artes marciales y más. Participamos en festivales, muestras y encuentros que ponen el arte cañetino en escena — porque creemos que el movimiento es también una forma de habitar y transformar el lugar donde vivimos.
         </p>
