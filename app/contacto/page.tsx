@@ -38,7 +38,7 @@ export default function ContactoPage() {
   }
 
   return (
-    <main className="mx-auto max-w-md px-6 py-12 md:px-12">
+    <main className="mx-auto max-w-md px-6 pt-28 pb-12 md:px-12">
       <h1 className="mb-6 font-display text-2xl text-tinta">CONTACTO</h1>
 
       <form className="flex flex-col gap-3" onSubmit={handleSubmit}>

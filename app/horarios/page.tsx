@@ -45,7 +45,7 @@ export default async function HorariosPage() {
   const porDia = agruparPorDia(talleres);
 
   return (
-    <main>
+    <main className="pt-28">
       {/* ── Banner decorativo ── */}
       <section className="relative h-48 overflow-hidden md:h-56">
         <Image

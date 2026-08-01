@@ -62,7 +62,7 @@ const FOTOS: Foto[] = [
 
 export default function QuienesSomosPage() {
   return (
-    <main className="mx-auto max-w-2xl px-6 py-12 md:px-12">
+    <main className="mx-auto max-w-2xl px-6 pt-28 pb-12 md:px-12">
       <h1 className="mb-8 font-display text-2xl text-tinta">QUIÉNES SOMOS</h1>
 
       <div className="mb-10 space-y-4 text-sm leading-relaxed text-tinta/85">
