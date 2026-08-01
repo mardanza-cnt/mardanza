@@ -63,10 +63,11 @@ export default function Manifiesto() {
           className="flex items-center justify-center bg-tinta px-6 py-16 opacity-0"
         >
           <h2 className="font-sans text-center text-3xl font-extralight tracking-[0.15em] text-white">
-            Donde el mar
+            Todos los cuerpos
             <br />
-            se vuelve arena
+            bailan
           </h2>
+
         </div>
       </div>
 
@@ -92,10 +93,11 @@ export default function Manifiesto() {
         >
           <div className="translate-y-12">
             <h2 className="font-sans text-center text-5xl font-extralight tracking-[0.15em] text-white lg:text-6xl">
-              Donde el mar
+              Todos los cuerpos
               <br />
-              se vuelve arena
+              bailan
             </h2>
+
           </div>
         </div>
       </div>

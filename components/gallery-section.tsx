@@ -4,7 +4,9 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 const PHOTOS = [
+  { src: "/images/gallery-19.webp", alt: "María Ángela en escena" },
   { src: "/images/gallery-01.webp", alt: "Trío rojo" },
+
   { src: "/images/gallery-04.webp", alt: "Banda en escenario" },
   { src: "/images/gallery-10.webp", alt: "Teatro B/N, cuellos isabelinos" },
   { src: "/images/gallery-06.webp", alt: "Dúo en el piso" },
