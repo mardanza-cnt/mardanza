@@ -1,5 +1,4 @@
 import Image from "next/image";
-import LogoOriginal from "@/components/logo-original";
 
 interface Foto {
   src: string;
@@ -61,25 +60,138 @@ const FOTOS: Foto[] = [
   },
 ];
 
+interface Codirector {
+  src: string;
+  nombre: string;
+  rol: string;
+}
+
+const CODIRECTORES: Codirector[] = [
+  {
+    src: "/images/maria-angela.webp",
+    nombre: "María Ángela Medrano Medrano",
+    rol: "Co-directora Mardanza — Bailarina y acróbata aérea",
+  },
+  {
+    src: "/images/roberto.webp",
+    nombre: "Roberto Roa Cartes",
+    rol: "Co-director Mardanza — Bailarín, bboy y traductor",
+  },
+];
+
+const VALORES = [
+  "Pasión por el movimiento",
+  "Trato respetuoso y amoroso",
+  "Adaptabilidad, perseverancia y sencillez",
+  "Participación activa y comprometida en la comunidad",
+  "Excelencia en la entrega de conocimientos",
+];
+
 export default function QuienesSomosPage() {
   return (
     <main className="mx-auto max-w-2xl px-6 pt-28 pb-12 md:px-12">
       <h1 className="mb-8 font-display text-2xl text-tinta">QUIÉNES SOMOS</h1>
 
-      <div className="mb-10 space-y-4 text-sm leading-relaxed text-tinta/85">
+      {/* ── Intro ── */}
+      <div className="mb-12 space-y-4 text-sm leading-relaxed text-tinta/85">
         <p>
-          Mardanza nació en Cañete como un espacio artístico independiente para la enseñanza y difusión de disciplinas del movimiento. En una ciudad que tiene pocos espacios para aprender y mostrar lo que se crea, Mardanza se convirtió en territorio: un lugar donde el cuerpo tiene espacio para crecer.
+          Somos un Centro Cultural ubicado en la comuna de Cañete, Chile.
+          Ofrecemos un espacio de formación, creación y difusión artística para
+          personas que buscan aprender, entrenar y compartir a través del arte,
+          la danza, el circo y otras disciplinas de movimiento corporal y
+          social.
         </p>
-
-        <LogoOriginal />
-
         <p>
-          Liderado por Roberto Roa y María Ángela Medrano, hoy somos un centro cultural activo en la Provincia de Arauco, con talleres semanales de danza contemporánea, teatro, breakdance, circo, tela aérea, artes marciales y más. Participamos en festivales, muestras y encuentros que ponen el arte cañetino en escena — porque creemos que el movimiento es también una forma de habitar y transformar el lugar donde vivimos.
+          Nuestras actividades contemplan la realización de talleres
+          formativos, creaciones coreográficas, participación en festivales y
+          encuentros, y producción de eventos culturales artísticos y
+          comunitarios.
         </p>
         <p>
-          Territorio en Movimiento no es solo un lema. Es la manera en que entendemos la cultura: viva, presente, en permanente construcción.
+          Cultivamos una gestión colaborativa y acogedora con otras
+          organizaciones, instituciones y artistas para el desarrollo de
+          proyectos e iniciativas de diversa índole.
         </p>
       </div>
+
+      {/* ── Misión / Visión / Valores ── */}
+      <section className="mb-12 space-y-8">
+        <div>
+          <h2 className="mb-2 font-display text-lg uppercase tracking-[0.15em] text-tinta">
+            Nuestra misión
+          </h2>
+          <p className="text-sm leading-relaxed text-tinta/85">
+            Ofrecer una experiencia artística de carácter honesto e integral
+            para la formación y expresión de personas de todas las edades,
+            brindando un espacio que potencie el talento, la disciplina, el
+            bienestar corporal y la creatividad en un entorno colaborativo,
+            profesional e inclusivo abierto a la comunidad.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="mb-2 font-display text-lg uppercase tracking-[0.15em] text-tinta">
+            Nuestra visión
+          </h2>
+          <p className="text-sm leading-relaxed text-tinta/85">
+            Convertirnos en un espacio líder en Cañete, siendo reconocidos por
+            abrirle espacios al arte a través de la danza, el circo y otras
+            actividades culturales y comunitarias.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="mb-3 font-display text-lg uppercase tracking-[0.15em] text-tinta">
+            Valores
+          </h2>
+          <ul className="space-y-2 text-sm leading-relaxed text-tinta/85">
+            {VALORES.map((valor) => (
+              <li key={valor} className="flex items-start gap-3">
+                <span
+                  className="mt-[0.55em] h-1.5 w-1.5 shrink-0 rounded-full bg-menta"
+                  aria-hidden="true"
+                />
+                <span>{valor}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* ── Codirectores ── */}
+      <section className="mb-12">
+        <h2 className="mb-6 font-display text-lg uppercase tracking-[0.15em] text-tinta">
+          Codirectores
+        </h2>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8">
+          {CODIRECTORES.map((codirector) => (
+            <figure key={codirector.src} className="group flex flex-col">
+              <div className="relative aspect-[3/4] overflow-hidden rounded-xl">
+                {/* Imagen con hover zoom (solo desktop) */}
+                <div className="absolute inset-0 transition-transform duration-700 ease-out will-change-transform md:group-hover:scale-[1.04]">
+                  <Image
+                    src={codirector.src}
+                    alt={codirector.nombre}
+                    fill
+                    sizes="(max-width: 640px) 100vw, 320px"
+                    className="object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+
+              <figcaption className="mt-3 text-center">
+                <p className="font-display text-base uppercase tracking-[0.1em] text-tinta">
+                  {codirector.nombre}
+                </p>
+                <p className="mt-1 text-xs leading-relaxed text-tinta/60">
+                  {codirector.rol}
+                </p>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
 
       {/* ── Galería tipo collage ── */}
       <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
