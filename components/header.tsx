@@ -5,9 +5,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
 
+// Links top-level que van ANTES del dropdown de Formación
 const NAV_LINKS = [
   { href: "/actividades", label: "Cartelera" },
   { href: "/quienes-somos", label: "Quiénes somos" },
+];
+
+// Links top-level que van DESPUÉS del dropdown de Formación
+const NAV_LINKS_AFTER = [
+  { href: "/otros-servicios", label: "Otros Servicios" },
   { href: "/contacto", label: "Contacto" },
 ];
 
@@ -16,6 +22,7 @@ const FORMACION_LINKS = [
   { href: "/colaboradores", label: "Talleres Colaboradores" },
   { href: "/horarios", label: "Horarios" },
 ];
+
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -148,7 +155,14 @@ export default function Header() {
                 </div>
               )}
             </div>
+
+            {NAV_LINKS_AFTER.map((link) => (
+              <Link key={link.href} href={link.href} className="hover:text-menta transition-colors">
+                {link.label}
+              </Link>
+            ))}
           </nav>
+
         </div>
       </header>
 
@@ -202,7 +216,19 @@ export default function Header() {
                 </div>
               )}
             </div>
+
+            {NAV_LINKS_AFTER.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-xl font-medium tracking-wide text-papel/90 transition-colors hover:text-papel"
+                onClick={() => setMenuOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
           </nav>
+
         </div>
       )}
     </>
