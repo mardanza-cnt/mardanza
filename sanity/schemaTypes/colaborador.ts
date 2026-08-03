@@ -16,8 +16,10 @@ export default defineType({
       title: "Logo",
       type: "image",
       options: { hotspot: true },
-      validation: (Rule) => Rule.required(),
+      // Opcional: permite crear el colaborador sin logo (se muestra un
+      // placeholder con la inicial) y subirlo luego desde el Studio.
     }),
+
     defineField({
       name: "descripcion",
       title: "Descripción breve",
