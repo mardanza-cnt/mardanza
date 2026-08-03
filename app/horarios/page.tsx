@@ -68,16 +68,19 @@ export default async function HorariosPage() {
       <div className="mx-auto max-w-3xl px-6 py-12 md:px-12">
         {/* Intro */}
         <p className="mb-6 text-base leading-relaxed text-tinta/70">
-          El movimiento no para. Organiza tu semana y haz espacio para lo que te hace bien.
+          Organiza tu semana y haz espacio para lo que te hace bien.
+        </p>
+        <p className="mb-6 text-base leading-relaxed text-tinta/70">
+          Un territorio para crear, aprender y conectar a través del cuerpo y las artes. Ya sea que estés comenzando o quieras profundizar, ¡aquí siempre hay un espacio para ti!
         </p>
         <p className="mb-8 text-base leading-relaxed text-tinta/70">
-          Un territorio para crear, aprender y conectar a través del cuerpo y las artes. Ya sea que estés comenzando o quieras profundizar, ¡aquí siempre hay un espacio para ti!
+          En este horario encontrarás todos los talleres regulares que se desarrollan en Mardanza tanto los impartidos por nuestro Centro Cultural como por nuestros colaboradores.
         </p>
 
         {/* ¿Qué necesitas saber? */}
         <div className="mb-12 rounded-lg border border-arena/30 bg-papel p-6">
           <h2 className="mb-3 font-display text-lg uppercase tracking-wide text-tinta">
-            ¿Qué necesitas saber?
+            Qué necesitas saber
           </h2>
           <ul className="space-y-2 text-base text-tinta/70">
             <li className="flex items-start gap-2">
@@ -88,8 +91,36 @@ export default async function HorariosPage() {
               <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-tinta/40" />
               Profesores profesionales acompañando tu proceso.
             </li>
+            <li className="flex items-start gap-2">
+              <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-tinta/40" />
+              Los horarios para clases de música son coordinados entre cada escuela y sus estudiantes de manera personalizada.
+            </li>
           </ul>
         </div>
+
+        {/* Modalidades de acceso */}
+        <div className="mb-12 rounded-lg border border-arena/30 bg-papel p-6">
+          <h2 className="mb-3 font-display text-lg uppercase tracking-wide text-tinta">
+            Modalidades de acceso para talleres de danza y circo
+          </h2>
+          <ul className="space-y-2 text-base text-tinta/70">
+            <li className="flex items-start gap-2">
+              <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-tinta/40" />
+              <span>
+                <strong className="font-semibold text-tinta">Talleres con adhesión mensual:</strong>{" "}
+                Clases continuas con arancel accesible.
+              </span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-tinta/40" />
+              <span>
+                <strong className="font-semibold text-tinta">Talleres gratuitos:</strong>{" "}
+                Programas abiertos a la comunidad gracias al financiamiento de la I. Municipalidad de Cañete.
+              </span>
+            </li>
+          </ul>
+        </div>
+
 
         {/* Grilla por día */}
 

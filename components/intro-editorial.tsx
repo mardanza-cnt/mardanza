@@ -29,9 +29,18 @@ export default function IntroEditorial() {
         Territorio en Movimiento
       </h1>
       <p className="mt-3 max-w-lg text-base leading-relaxed text-tinta/70 md:text-lg">
-        Del mar a la arena, del cuerpo al encuentro. Diez disciplinas conviven en un mismo espacio
-        de creación, movimiento y comunidad.
+        Es la manera en que entendemos la cultura: viva y en permanente
+        construcción.
+      </p>
+      <p className="mt-3 max-w-lg text-base leading-relaxed text-tinta/70 md:text-lg">
+        Conoce la programación de muestras, clases especiales y eventos que se
+        concentran en nuestro espacio. ¡Participa y sé parte de la cartelera de
+        este mes!
+      </p>
+      <p className="mt-3 max-w-lg text-base leading-relaxed text-tinta/70 md:text-lg">
+        También puedes visitarnos o escribirnos para programar tu actividad.
       </p>
     </div>
   );
+
 }
